@@ -9,15 +9,40 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TestimoniesRouteImport } from './routes/testimonies'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ProgramsRouteImport } from './routes/programs'
+import { Route as PrayerRouteImport } from './routes/prayer'
+import { Route as GiveRouteImport } from './routes/give'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as DevotionalRouteImport } from './routes/devotional'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TestimoniesRoute = TestimoniesRouteImport.update({
+  id: '/testimonies',
+  path: '/testimonies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProgramsRoute = ProgramsRouteImport.update({
   id: '/programs',
   path: '/programs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrayerRoute = PrayerRouteImport.update({
+  id: '/prayer',
+  path: '/prayer',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GiveRoute = GiveRouteImport.update({
+  id: '/give',
+  path: '/give',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EventsRoute = EventsRouteImport.update({
@@ -28,6 +53,11 @@ const EventsRoute = EventsRouteImport.update({
 const DevotionalRoute = DevotionalRouteImport.update({
   id: '/devotional',
   path: '/devotional',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -44,48 +74,127 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/devotional': typeof DevotionalRoute
   '/events': typeof EventsRoute
+  '/give': typeof GiveRoute
+  '/prayer': typeof PrayerRoute
   '/programs': typeof ProgramsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/testimonies': typeof TestimoniesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/devotional': typeof DevotionalRoute
   '/events': typeof EventsRoute
+  '/give': typeof GiveRoute
+  '/prayer': typeof PrayerRoute
   '/programs': typeof ProgramsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/testimonies': typeof TestimoniesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/devotional': typeof DevotionalRoute
   '/events': typeof EventsRoute
+  '/give': typeof GiveRoute
+  '/prayer': typeof PrayerRoute
   '/programs': typeof ProgramsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/testimonies': typeof TestimoniesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/devotional' | '/events' | '/programs'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/devotional'
+    | '/events'
+    | '/give'
+    | '/prayer'
+    | '/programs'
+    | '/sitemap.xml'
+    | '/testimonies'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/devotional' | '/events' | '/programs'
-  id: '__root__' | '/' | '/about' | '/devotional' | '/events' | '/programs'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/devotional'
+    | '/events'
+    | '/give'
+    | '/prayer'
+    | '/programs'
+    | '/sitemap.xml'
+    | '/testimonies'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/devotional'
+    | '/events'
+    | '/give'
+    | '/prayer'
+    | '/programs'
+    | '/sitemap.xml'
+    | '/testimonies'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
   DevotionalRoute: typeof DevotionalRoute
   EventsRoute: typeof EventsRoute
+  GiveRoute: typeof GiveRoute
+  PrayerRoute: typeof PrayerRoute
   ProgramsRoute: typeof ProgramsRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TestimoniesRoute: typeof TestimoniesRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/testimonies': {
+      id: '/testimonies'
+      path: '/testimonies'
+      fullPath: '/testimonies'
+      preLoaderRoute: typeof TestimoniesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/programs': {
       id: '/programs'
       path: '/programs'
       fullPath: '/programs'
       preLoaderRoute: typeof ProgramsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prayer': {
+      id: '/prayer'
+      path: '/prayer'
+      fullPath: '/prayer'
+      preLoaderRoute: typeof PrayerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/give': {
+      id: '/give'
+      path: '/give'
+      fullPath: '/give'
+      preLoaderRoute: typeof GiveRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/events': {
@@ -100,6 +209,13 @@ declare module '@tanstack/react-router' {
       path: '/devotional'
       fullPath: '/devotional'
       preLoaderRoute: typeof DevotionalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -122,9 +238,14 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
   DevotionalRoute: DevotionalRoute,
   EventsRoute: EventsRoute,
+  GiveRoute: GiveRoute,
+  PrayerRoute: PrayerRoute,
   ProgramsRoute: ProgramsRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TestimoniesRoute: TestimoniesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
