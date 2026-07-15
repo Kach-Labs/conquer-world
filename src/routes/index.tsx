@@ -32,11 +32,11 @@ export const Route = createFileRoute("/")({
         content:
           "A Spirit-led youth revival movement raising a generation on fire for Jesus. Read today's devotional, submit a prayer request, or partner with the mission.",
       },
-      { property: "og:title", content: "ConquerWorld Apostolic Renaissance" },
+      { property: "og:title", content: "ConquerWorld Apostolic Renaissance | Set The World Ablaze" },
       {
         property: "og:description",
         content:
-          "New Era. New Wave. Same Fire. A world set ablaze, nations impacted, the Great Commission fulfilled.",
+          "A Spirit-led youth revival movement raising a generation on fire for Jesus. Read today's devotional, submit a prayer request, or partner with the mission.",
       },
     ],
   }),

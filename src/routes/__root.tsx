@@ -80,26 +80,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         title:
-          "ConquerWorld Apostolic Renaissance | New Era. New Wave. Same Fire.",
+          "ConquerWorld Apostolic Renaissance | Set The World Ablaze",
       },
       {
         name: "description",
         content:
-          "A Spirit-led, youth revival movement unleashing the fire of God, impacting nations, and fulfilling the Great Commission.",
+          "A Spirit-led youth revival movement raising a generation on fire for Jesus. Read today's devotional, submit a prayer request, or partner with the mission.",
       },
       { name: "author", content: "ConquerWorld Apostolic Renaissance" },
       { name: "theme-color", content: "#0F0B08" },
       {
         property: "og:title",
-        content: "ConquerWorld Apostolic Renaissance",
+        content: "ConquerWorld Apostolic Renaissance | Set The World Ablaze",
       },
       {
         property: "og:description",
         content:
-          "A world set ablaze. Nations impacted. The Great Commission fulfilled.",
+          "A Spirit-led youth revival movement raising a generation on fire for Jesus. Read today's devotional, submit a prayer request, or partner with the mission.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "ConquerWorld Apostolic Renaissance | Set The World Ablaze" },
+      { name: "twitter:description", content: "A Spirit-led youth revival movement raising a generation on fire for Jesus. Read today's devotional, submit a prayer request, or partner with the mission." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/96fa755a-ecec-4169-b16a-d36c95c90b22/id-preview-5267870d--3f71d566-bbdf-4ee5-99b2-19d943bb69ec.lovable.app-1784099197273.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/96fa755a-ecec-4169-b16a-d36c95c90b22/id-preview-5267870d--3f71d566-bbdf-4ee5-99b2-19d943bb69ec.lovable.app-1784099197273.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
