@@ -131,9 +131,6 @@ function ProgramsPage() {
                 </article>
               );
             })}
-
-              );
-            })}
           </div>
         </div>
       </section>
