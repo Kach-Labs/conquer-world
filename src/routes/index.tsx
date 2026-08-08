@@ -312,6 +312,50 @@ function HomePage() {
         </div>
       </section>
 
+      {/* GALLERY STRIP */}
+      <section className="bg-charcoal py-16 text-white sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <SectionEyebrow tone="dark">Gallery</SectionEyebrow>
+              <h2 className="mt-4 font-display text-3xl font-bold sm:text-4xl">
+                Faith in <span className="text-gradient-fire">action</span>.
+              </h2>
+            </div>
+            <Link
+              to="/gallery"
+              className="inline-flex items-center gap-1 text-sm font-semibold text-fire hover:underline"
+            >
+              View the gallery <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+        <div className="mt-8 grid grid-cols-2 gap-1 sm:gap-2 lg:grid-cols-4">
+          {strip.map((g) => (
+            <Link
+              key={g.id}
+              to="/gallery"
+              className="group relative block aspect-4/3 overflow-hidden"
+            >
+              <img
+                src={g.url}
+                alt={g.alt}
+                loading="lazy"
+                className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/10 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-4">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold">
+                  {g.category}
+                </p>
+                <p className="mt-1 font-display text-sm font-semibold text-white">{g.caption}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+
       {/* PARTNER CTA */}
       <section className="relative overflow-hidden bg-fire py-24 text-white sm:py-32">
         <div className="pointer-events-none absolute inset-0 opacity-30 mix-blend-overlay">
