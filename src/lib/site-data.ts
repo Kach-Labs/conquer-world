@@ -183,7 +183,14 @@ export const devotionals: Devotional[] = [
   },
 ];
 
+const pastDate = (n: number) => {
+  const d = new Date(today);
+  d.setDate(d.getDate() - n);
+  return d.toISOString();
+};
+
 // -------- Gallery (real ministry photos) --------
+
 
 import outreach1 from "@/assets/outreach1.jpg.asset.json";
 import outreach2 from "@/assets/outreach2.jpg.asset.json";
