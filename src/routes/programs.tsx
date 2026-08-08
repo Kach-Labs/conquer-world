@@ -46,6 +46,30 @@ const iconMap: Record<string, LucideIcon> = {
   bus: Bus,
 };
 
+const photoBySlug: Record<string, { url: string; alt: string }> = {
+  "global-outreach": {
+    url: galleryImages.find((g) => g.id === "g-003")!.url,
+    alt: "Evangelist preaching to village elders during a CAR outreach",
+  },
+  "market-evangelism": {
+    url: galleryImages.find((g) => g.id === "g-001")!.url,
+    alt: "Young evangelist preaching aloud at a busy town junction",
+  },
+  "door-to-door": {
+    url: galleryImages.find((g) => g.id === "g-004")!.url,
+    alt: "Evangelist handing out gospel tracts at a city junction",
+  },
+  campus: {
+    url: galleryImages.find((g) => g.id === "g-002")!.url,
+    alt: "Open-air teaching to a seated group of young people",
+  },
+  conferences: {
+    url: galleryImages.find((g) => g.id === "g-005")!.url,
+    alt: "CAR outreach team in reflector vests before a market storming",
+  },
+};
+
+
 function ProgramsPage() {
   return (
     <div>
