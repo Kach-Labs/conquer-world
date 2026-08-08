@@ -217,11 +217,7 @@ function GalleryPage() {
         </div>
       )}
 
-      <div className="sr-only">
-        <Link to="/gallery">
-          Gallery <ArrowRight className="h-4 w-4" />
-        </Link>
-      </div>
     </div>
   );
 }
+
