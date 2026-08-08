@@ -14,7 +14,6 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as PrayerRouteImport } from './routes/prayer'
 import { Route as GiveRouteImport } from './routes/give'
-import { Route as EventsRouteImport } from './routes/events'
 import { Route as DevotionalRouteImport } from './routes/devotional'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
@@ -45,11 +44,6 @@ const GiveRoute = GiveRouteImport.update({
   path: '/give',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EventsRoute = EventsRouteImport.update({
-  id: '/events',
-  path: '/events',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const DevotionalRoute = DevotionalRouteImport.update({
   id: '/devotional',
   path: '/devotional',
@@ -76,7 +70,6 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/devotional': typeof DevotionalRoute
-  '/events': typeof EventsRoute
   '/give': typeof GiveRoute
   '/prayer': typeof PrayerRoute
   '/programs': typeof ProgramsRoute
@@ -88,7 +81,6 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/devotional': typeof DevotionalRoute
-  '/events': typeof EventsRoute
   '/give': typeof GiveRoute
   '/prayer': typeof PrayerRoute
   '/programs': typeof ProgramsRoute
@@ -101,7 +93,6 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/devotional': typeof DevotionalRoute
-  '/events': typeof EventsRoute
   '/give': typeof GiveRoute
   '/prayer': typeof PrayerRoute
   '/programs': typeof ProgramsRoute
@@ -115,7 +106,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/devotional'
-    | '/events'
     | '/give'
     | '/prayer'
     | '/programs'
@@ -127,7 +117,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/devotional'
-    | '/events'
     | '/give'
     | '/prayer'
     | '/programs'
@@ -139,7 +128,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/devotional'
-    | '/events'
     | '/give'
     | '/prayer'
     | '/programs'
@@ -152,7 +140,6 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   DevotionalRoute: typeof DevotionalRoute
-  EventsRoute: typeof EventsRoute
   GiveRoute: typeof GiveRoute
   PrayerRoute: typeof PrayerRoute
   ProgramsRoute: typeof ProgramsRoute
@@ -197,13 +184,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GiveRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/events': {
-      id: '/events'
-      path: '/events'
-      fullPath: '/events'
-      preLoaderRoute: typeof EventsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/devotional': {
       id: '/devotional'
       path: '/devotional'
@@ -240,7 +220,6 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   DevotionalRoute: DevotionalRoute,
-  EventsRoute: EventsRoute,
   GiveRoute: GiveRoute,
   PrayerRoute: PrayerRoute,
   ProgramsRoute: ProgramsRoute,
@@ -250,13 +229,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
