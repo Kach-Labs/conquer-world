@@ -1,7 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Building2, ExternalLink, Heart, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ministry, partnerWays } from "@/lib/site-data";
+import teamPhoto from "@/assets/outreach5.jpg.asset.json";
+
 
 export const Route = createFileRoute("/give")({
   component: GivePage,
