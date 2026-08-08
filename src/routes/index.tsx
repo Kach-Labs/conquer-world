@@ -46,7 +46,7 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
   const todayDevo = devotionals[0];
-  const upcoming = events.filter((e) => e.status === "Upcoming").slice(0, 3);
+  const strip = galleryImages.slice(0, 4);
 
   return (
     <div className="text-foreground">
