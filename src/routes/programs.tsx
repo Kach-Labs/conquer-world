@@ -110,7 +110,7 @@ function ProgramsPage() {
               <Link to="/contact">Get in Touch</Link>
             </Button>
             <Button asChild variant="glow" size="lg">
-              <Link to="/events">See Upcoming Events</Link>
+              <Link to="/gallery">See the Gallery</Link>
             </Button>
           </div>
         </div>
