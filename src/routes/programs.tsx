@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { programs } from "@/lib/site-data";
+import { galleryImages, programs } from "@/lib/site-data";
 
 export const Route = createFileRoute("/programs")({
   component: ProgramsPage,
