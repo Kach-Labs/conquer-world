@@ -168,13 +168,14 @@ function AboutPage() {
               <div className="relative">
                 <div className="absolute -inset-4 rounded-3xl bg-fire opacity-20 blur-3xl" />
                 <img
-                  src={preachingImg}
-                  alt="Apostle John Wiseman preaching"
+                  src={villagePhoto.url}
+                  alt="Apostle John Wiseman preaching to village elders during a CAR outreach"
                   className="relative w-full rounded-3xl object-cover shadow-card"
                   loading="lazy"
-                  width={1400}
-                  height={1600}
+                  width={720}
+                  height={1280}
                 />
+
               </div>
               <p className="mt-6 text-center text-sm font-semibold uppercase tracking-[0.2em] text-fire">
                 Founder
