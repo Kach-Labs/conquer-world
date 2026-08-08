@@ -145,13 +145,14 @@ function HomePage() {
             <div className="relative">
               <div className="absolute -inset-4 rounded-3xl bg-fire opacity-20 blur-3xl" />
               <img
-                src={resolveImage("preaching")}
-                alt="Apostolic preaching"
+                src={teachingPhoto.url}
+                alt="CAR evangelist teaching a seated community group outdoors under a large tree"
                 className="relative w-full rounded-3xl object-cover shadow-card"
                 loading="lazy"
-                width={1400}
-                height={1600}
+                width={1280}
+                height={960}
               />
+
             </div>
           </div>
         </div>
