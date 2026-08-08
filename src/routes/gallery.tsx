@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ChevronLeft, ChevronRight, Camera, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Camera, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { galleryCategories, galleryImages, type GalleryCategory } from "@/lib/site-data";
