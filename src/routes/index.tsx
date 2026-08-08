@@ -14,13 +14,15 @@ import { resolveImage } from "@/components/image-by-key";
 import {
   coreValues,
   devotionals,
-  events,
+  galleryImages,
   ministry,
   objectives,
   programs,
   testimonies,
 } from "@/lib/site-data";
 import heroImg from "@/assets/hero-revival.jpg";
+import teachingPhoto from "@/assets/outreach2.jpg.asset.json";
+
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -44,7 +46,7 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
   const todayDevo = devotionals[0];
-  const upcoming = events.filter((e) => e.status === "Upcoming").slice(0, 3);
+  const strip = galleryImages.slice(0, 4);
 
   return (
     <div className="text-foreground">
@@ -143,13 +145,14 @@ function HomePage() {
             <div className="relative">
               <div className="absolute -inset-4 rounded-3xl bg-fire opacity-20 blur-3xl" />
               <img
-                src={resolveImage("preaching")}
-                alt="Apostolic preaching"
+                src={teachingPhoto.url}
+                alt="CAR evangelist teaching a seated community group outdoors under a large tree"
                 className="relative w-full rounded-3xl object-cover shadow-card"
                 loading="lazy"
-                width={1400}
-                height={1600}
+                width={1280}
+                height={960}
               />
+
             </div>
           </div>
         </div>
@@ -242,66 +245,31 @@ function HomePage() {
         </div>
       </section>
 
-      {/* DEVOTIONAL + EVENTS split */}
+      {/* DEVOTIONAL */}
       <section className="bg-charcoal py-24 text-white sm:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-5">
-            <div className="lg:col-span-3">
-              <SectionEyebrow tone="dark">Today's Devotional</SectionEyebrow>
-              <h2 className="mt-4 font-display text-4xl font-bold sm:text-5xl">
-                {todayDevo.title}
-              </h2>
-              <p className="mt-3 text-sm font-semibold uppercase tracking-widest text-gold">
-                {todayDevo.scripture} · {todayDevo.author}
-              </p>
-              <p className="mt-6 text-lg leading-relaxed text-white/80">{todayDevo.summary}</p>
-              <div className="mt-8">
-                <Button asChild variant="fire" size="lg">
-                  <Link to="/devotional">
-                    Read the full devotional <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
-            <div className="lg:col-span-2">
-              <SectionEyebrow tone="dark">Upcoming</SectionEyebrow>
-              <h3 className="mt-4 font-display text-2xl font-bold">Come and encounter God.</h3>
-              <ul className="mt-6 space-y-4">
-                {upcoming.map((e) => {
-                  const d = new Date(e.date);
-                  return (
-                    <li
-                      key={e.id}
-                      className="group flex gap-4 rounded-xl border border-white/10 bg-white/[0.03] p-4 transition hover:border-fire/40"
-                    >
-                      <div className="flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-lg bg-fire text-white shadow-fire">
-                        <span className="text-xs font-semibold uppercase">
-                          {d.toLocaleString("en", { month: "short" })}
-                        </span>
-                        <span className="font-display text-xl font-bold leading-none">
-                          {d.getDate()}
-                        </span>
-                      </div>
-                      <div className="min-w-0">
-                        <div className="font-display text-base font-semibold">{e.name}</div>
-                        <div className="mt-1 text-xs text-white/60">{e.venue}</div>
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-              <div className="mt-6">
-                <Link
-                  to="/events"
-                  className="inline-flex items-center gap-1 text-sm font-semibold text-fire hover:underline"
-                >
-                  All events <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </div>
+        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+          <div className="flex justify-center">
+            <SectionEyebrow tone="dark">Today's Devotional</SectionEyebrow>
+          </div>
+          <h2 className="mt-4 font-display text-4xl font-bold sm:text-5xl md:text-6xl">
+            {todayDevo.title}
+          </h2>
+          <p className="mt-4 text-sm font-semibold uppercase tracking-widest text-gold">
+            {todayDevo.scripture} · {todayDevo.author}
+          </p>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
+            {todayDevo.summary}
+          </p>
+          <div className="mt-8">
+            <Button asChild variant="fire" size="lg">
+              <Link to="/devotional">
+                Read the full devotional <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
+
 
       {/* TESTIMONIES */}
       <section className="bg-background py-24 sm:py-32">
@@ -343,6 +311,50 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* GALLERY STRIP */}
+      <section className="bg-charcoal py-16 text-white sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <SectionEyebrow tone="dark">Gallery</SectionEyebrow>
+              <h2 className="mt-4 font-display text-3xl font-bold sm:text-4xl">
+                Faith in <span className="text-gradient-fire">action</span>.
+              </h2>
+            </div>
+            <Link
+              to="/gallery"
+              className="inline-flex items-center gap-1 text-sm font-semibold text-fire hover:underline"
+            >
+              View the gallery <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+        <div className="mt-8 grid grid-cols-2 gap-1 sm:gap-2 lg:grid-cols-4">
+          {strip.map((g) => (
+            <Link
+              key={g.id}
+              to="/gallery"
+              className="group relative block aspect-4/3 overflow-hidden"
+            >
+              <img
+                src={g.url}
+                alt={g.alt}
+                loading="lazy"
+                className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/10 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-4">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold">
+                  {g.category}
+                </p>
+                <p className="mt-1 font-display text-sm font-semibold text-white">{g.caption}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
 
       {/* PARTNER CTA */}
       <section className="relative overflow-hidden bg-fire py-24 text-white sm:py-32">

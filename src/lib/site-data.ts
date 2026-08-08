@@ -183,84 +183,92 @@ export const devotionals: Devotional[] = [
   },
 ];
 
-// -------- Events (seeded sample content) --------
-
-export interface EventItem {
-  id: string;
-  name: string;
-  date: string; // ISO
-  time: string;
-  venue: string;
-  speaker: string;
-  description: string;
-  image: string;
-  registerUrl?: string;
-  status: "Upcoming" | "Past" | "Cancelled";
-}
-
-const futureDate = (n: number) => {
-  const d = new Date(today);
-  d.setDate(d.getDate() + n);
-  return d.toISOString();
-};
 const pastDate = (n: number) => {
   const d = new Date(today);
   d.setDate(d.getDate() - n);
   return d.toISOString();
 };
 
-export const events: EventItem[] = [
+// -------- Gallery (real ministry photos) --------
+
+
+import outreach1 from "@/assets/outreach1.jpg.asset.json";
+import outreach2 from "@/assets/outreach2.jpg.asset.json";
+import outreach3 from "@/assets/outreach3.jpg.asset.json";
+import outreach4 from "@/assets/outreach4.jpg.asset.json";
+import outreach5 from "@/assets/outreach5.jpg.asset.json";
+
+export type GalleryCategory =
+  | "Street Evangelism"
+  | "Village Outreach"
+  | "Teaching"
+  | "Team";
+
+export interface GalleryImage {
+  id: string;
+  url: string;
+  caption: string;
+  context: string;
+  category: GalleryCategory;
+  alt: string;
+  orientation: "portrait" | "landscape";
+}
+
+export const galleryImages: GalleryImage[] = [
   {
-    id: "e-001",
-    name: "Set The World Ablaze Conference",
-    date: futureDate(21),
-    time: "9:00 AM – 8:00 PM",
-    venue: "Gulu, Uganda",
-    speaker: "Apostle John Wiseman & Guests",
-    description:
-      "A three-day gathering of revival fire, prophetic worship, and apostolic teaching. Come expecting encounter.",
-    image: "hero",
-    registerUrl: "#",
-    status: "Upcoming",
+    id: "g-002",
+    url: outreach2.url,
+    caption: "Open-air teaching under the mango tree",
+    context: "Community gathering, Gulu",
+    category: "Teaching",
+    alt: "Preacher teaching a seated group of youth and women outdoors under a large tree",
+    orientation: "landscape",
   },
   {
-    id: "e-002",
-    name: "Kingdom Influencers Summit",
-    date: futureDate(58),
-    time: "10:00 AM – 5:00 PM",
-    venue: "Online — Live Stream",
-    speaker: "CAR Leadership Team",
-    description:
-      "Equipping the next generation of leaders, prophetic voices, and marketplace influencers to impact their world.",
-    image: "preaching",
-    registerUrl: "#",
-    status: "Upcoming",
+    id: "g-001",
+    url: outreach1.url,
+    caption: "Preaching at the fuel station junction",
+    context: "Street storming, Gulu town",
+    category: "Street Evangelism",
+    alt: "Young evangelist preaching aloud beside a busy fuel station on a town road",
+    orientation: "portrait",
   },
   {
-    id: "e-003",
-    name: "Campus Fire Tour — Makerere",
-    date: futureDate(89),
-    time: "6:00 PM – 9:00 PM",
-    venue: "Makerere University",
-    speaker: "Apostle John Wiseman",
-    description:
-      "An evening of worship, the Word, and salvations on campus. Bring a friend who needs Jesus.",
-    image: "outreach",
-    registerUrl: "#",
-    status: "Upcoming",
+    id: "g-003",
+    url: outreach3.url,
+    caption: "The Word among the elders",
+    context: "Village outreach, northern Uganda",
+    category: "Village Outreach",
+    alt: "Evangelist holding a microphone preaching to seated village elders under trees",
+    orientation: "portrait",
   },
   {
-    id: "e-100",
-    name: "Youth for Jesus Revival Night",
-    date: pastDate(24),
-    time: "7:00 PM",
-    venue: "Gulu Town",
-    speaker: "Apostle John Wiseman",
-    description: "A powerful night of fire and salvations that sparked a wave across the region.",
-    image: "prayer",
-    status: "Past",
+    id: "g-004",
+    url: outreach4.url,
+    caption: "Tracts at the traffic lights",
+    context: "City junction outreach",
+    category: "Street Evangelism",
+    alt: "Evangelist in a suit handing out gospel tracts at a city road junction",
+    orientation: "portrait",
+  },
+  {
+    id: "g-005",
+    url: outreach5.url,
+    caption: "The outreach team, ready to go",
+    context: "Market storming team, Gulu",
+    category: "Team",
+    alt: "Group of young outreach volunteers in reflector vests standing along a town street",
+    orientation: "landscape",
   },
 ];
+
+export const galleryCategories: GalleryCategory[] = [
+  "Street Evangelism",
+  "Village Outreach",
+  "Teaching",
+  "Team",
+];
+
 
 // -------- Testimonies --------
 

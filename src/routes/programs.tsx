@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { programs } from "@/lib/site-data";
+import { galleryImages, programs } from "@/lib/site-data";
 
 export const Route = createFileRoute("/programs")({
   component: ProgramsPage,
@@ -46,6 +46,30 @@ const iconMap: Record<string, LucideIcon> = {
   bus: Bus,
 };
 
+const photoBySlug: Record<string, { url: string; alt: string }> = {
+  "global-outreach": {
+    url: galleryImages.find((g) => g.id === "g-003")!.url,
+    alt: "Evangelist preaching to village elders during a CAR outreach",
+  },
+  "market-evangelism": {
+    url: galleryImages.find((g) => g.id === "g-001")!.url,
+    alt: "Young evangelist preaching aloud at a busy town junction",
+  },
+  "door-to-door": {
+    url: galleryImages.find((g) => g.id === "g-004")!.url,
+    alt: "Evangelist handing out gospel tracts at a city junction",
+  },
+  campus: {
+    url: galleryImages.find((g) => g.id === "g-002")!.url,
+    alt: "Open-air teaching to a seated group of young people",
+  },
+  conferences: {
+    url: galleryImages.find((g) => g.id === "g-005")!.url,
+    alt: "CAR outreach team in reflector vests before a market storming",
+  },
+};
+
+
 function ProgramsPage() {
   return (
     <div>
@@ -71,24 +95,38 @@ function ProgramsPage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {programs.map((p, i) => {
               const Icon = iconMap[p.icon] ?? Flame;
+              const photo = photoBySlug[p.slug];
               return (
                 <article
                   key={p.slug}
-                  className="group relative overflow-hidden rounded-2xl border border-border bg-card p-8 shadow-card transition hover:-translate-y-1 hover:border-fire/50"
+                  className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-card transition hover:-translate-y-1 hover:border-fire/50"
                 >
-                  <div className="absolute -right-6 -top-6 text-[7rem] font-black text-fire/[0.06] leading-none">
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
-                  <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-fire text-white shadow-fire">
-                    <Icon className="h-6 w-6" />
-                  </div>
-                  <h2 className="font-display text-xl font-semibold">{p.title}</h2>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                    {p.summary}
-                  </p>
-                  <div className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-fire">
-                    Learn more
-                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                  {photo && (
+                    <div className="relative aspect-16/10 overflow-hidden">
+                      <img
+                        src={photo.url}
+                        alt={photo.alt}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
+                    </div>
+                  )}
+                  <div className="relative flex flex-1 flex-col p-8">
+                    <div className="absolute -right-6 -top-6 text-[7rem] font-black text-fire/[0.06] leading-none">
+                      {String(i + 1).padStart(2, "0")}
+                    </div>
+                    <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-fire text-white shadow-fire">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <h2 className="font-display text-xl font-semibold">{p.title}</h2>
+                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                      {p.summary}
+                    </p>
+                    <div className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-fire">
+                      Learn more
+                      <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                    </div>
                   </div>
                 </article>
               );
@@ -110,7 +148,7 @@ function ProgramsPage() {
               <Link to="/contact">Get in Touch</Link>
             </Button>
             <Button asChild variant="glow" size="lg">
-              <Link to="/events">See Upcoming Events</Link>
+              <Link to="/gallery">See the Gallery</Link>
             </Button>
           </div>
         </div>

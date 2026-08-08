@@ -1,7 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Building2, ExternalLink, Heart, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ministry, partnerWays } from "@/lib/site-data";
+import teamPhoto from "@/assets/outreach5.jpg.asset.json";
+
 
 export const Route = createFileRoute("/give")({
   component: GivePage,
@@ -77,6 +79,40 @@ function GivePage() {
           </div>
         </div>
       </section>
+
+      {/* WHAT YOUR GIVING FUELS */}
+      <section className="bg-charcoal py-20 text-white sm:py-24">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+          <div className="relative">
+            <div className="absolute -inset-4 rounded-3xl bg-fire opacity-20 blur-3xl" />
+            <img
+              src={teamPhoto.url}
+              alt="CAR outreach team in reflector vests ready for a street evangelism mission"
+              loading="lazy"
+              className="relative w-full rounded-3xl object-cover shadow-card"
+            />
+          </div>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-gold">
+              Your Giving in Action
+            </p>
+            <h2 className="mt-4 font-display text-4xl font-bold sm:text-5xl">
+              Feet on the street, <span className="text-gradient-fire">fire in the harvest.</span>
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-white/80">
+              Every gift becomes transport for a team, tracts in a stranger's hand, sound for an
+              open-air meeting, and Bibles for new believers in villages the gospel rarely reaches.
+            </p>
+            <Link
+              to="/gallery"
+              className="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-fire hover:underline"
+            >
+              See where your giving goes
+            </Link>
+          </div>
+        </div>
+      </section>
+
 
       {/* GIVING METHODS */}
       <section className="bg-secondary/40 py-20 sm:py-24">
