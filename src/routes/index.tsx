@@ -244,66 +244,31 @@ function HomePage() {
         </div>
       </section>
 
-      {/* DEVOTIONAL + EVENTS split */}
+      {/* DEVOTIONAL */}
       <section className="bg-charcoal py-24 text-white sm:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 lg:grid-cols-5">
-            <div className="lg:col-span-3">
-              <SectionEyebrow tone="dark">Today's Devotional</SectionEyebrow>
-              <h2 className="mt-4 font-display text-4xl font-bold sm:text-5xl">
-                {todayDevo.title}
-              </h2>
-              <p className="mt-3 text-sm font-semibold uppercase tracking-widest text-gold">
-                {todayDevo.scripture} · {todayDevo.author}
-              </p>
-              <p className="mt-6 text-lg leading-relaxed text-white/80">{todayDevo.summary}</p>
-              <div className="mt-8">
-                <Button asChild variant="fire" size="lg">
-                  <Link to="/devotional">
-                    Read the full devotional <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
-            <div className="lg:col-span-2">
-              <SectionEyebrow tone="dark">Upcoming</SectionEyebrow>
-              <h3 className="mt-4 font-display text-2xl font-bold">Come and encounter God.</h3>
-              <ul className="mt-6 space-y-4">
-                {upcoming.map((e) => {
-                  const d = new Date(e.date);
-                  return (
-                    <li
-                      key={e.id}
-                      className="group flex gap-4 rounded-xl border border-white/10 bg-white/[0.03] p-4 transition hover:border-fire/40"
-                    >
-                      <div className="flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-lg bg-fire text-white shadow-fire">
-                        <span className="text-xs font-semibold uppercase">
-                          {d.toLocaleString("en", { month: "short" })}
-                        </span>
-                        <span className="font-display text-xl font-bold leading-none">
-                          {d.getDate()}
-                        </span>
-                      </div>
-                      <div className="min-w-0">
-                        <div className="font-display text-base font-semibold">{e.name}</div>
-                        <div className="mt-1 text-xs text-white/60">{e.venue}</div>
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-              <div className="mt-6">
-                <Link
-                  to="/events"
-                  className="inline-flex items-center gap-1 text-sm font-semibold text-fire hover:underline"
-                >
-                  All events <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </div>
+        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+          <div className="flex justify-center">
+            <SectionEyebrow tone="dark">Today's Devotional</SectionEyebrow>
+          </div>
+          <h2 className="mt-4 font-display text-4xl font-bold sm:text-5xl md:text-6xl">
+            {todayDevo.title}
+          </h2>
+          <p className="mt-4 text-sm font-semibold uppercase tracking-widest text-gold">
+            {todayDevo.scripture} · {todayDevo.author}
+          </p>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/80">
+            {todayDevo.summary}
+          </p>
+          <div className="mt-8">
+            <Button asChild variant="fire" size="lg">
+              <Link to="/devotional">
+                Read the full devotional <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
+
 
       {/* TESTIMONIES */}
       <section className="bg-background py-24 sm:py-32">
