@@ -14,6 +14,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as PrayerRouteImport } from './routes/prayer'
 import { Route as GiveRouteImport } from './routes/give'
+import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as DevotionalRouteImport } from './routes/devotional'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
@@ -44,6 +45,11 @@ const GiveRoute = GiveRouteImport.update({
   path: '/give',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DevotionalRoute = DevotionalRouteImport.update({
   id: '/devotional',
   path: '/devotional',
@@ -70,6 +76,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/devotional': typeof DevotionalRoute
+  '/gallery': typeof GalleryRoute
   '/give': typeof GiveRoute
   '/prayer': typeof PrayerRoute
   '/programs': typeof ProgramsRoute
@@ -81,6 +88,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/devotional': typeof DevotionalRoute
+  '/gallery': typeof GalleryRoute
   '/give': typeof GiveRoute
   '/prayer': typeof PrayerRoute
   '/programs': typeof ProgramsRoute
@@ -93,6 +101,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/devotional': typeof DevotionalRoute
+  '/gallery': typeof GalleryRoute
   '/give': typeof GiveRoute
   '/prayer': typeof PrayerRoute
   '/programs': typeof ProgramsRoute
@@ -106,6 +115,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/devotional'
+    | '/gallery'
     | '/give'
     | '/prayer'
     | '/programs'
@@ -117,6 +127,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/devotional'
+    | '/gallery'
     | '/give'
     | '/prayer'
     | '/programs'
@@ -128,6 +139,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/devotional'
+    | '/gallery'
     | '/give'
     | '/prayer'
     | '/programs'
@@ -140,6 +152,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   DevotionalRoute: typeof DevotionalRoute
+  GalleryRoute: typeof GalleryRoute
   GiveRoute: typeof GiveRoute
   PrayerRoute: typeof PrayerRoute
   ProgramsRoute: typeof ProgramsRoute
@@ -184,6 +197,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GiveRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/devotional': {
       id: '/devotional'
       path: '/devotional'
@@ -220,6 +240,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   DevotionalRoute: DevotionalRoute,
+  GalleryRoute: GalleryRoute,
   GiveRoute: GiveRoute,
   PrayerRoute: PrayerRoute,
   ProgramsRoute: ProgramsRoute,

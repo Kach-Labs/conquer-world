@@ -14,13 +14,15 @@ import { resolveImage } from "@/components/image-by-key";
 import {
   coreValues,
   devotionals,
-  events,
+  galleryImages,
   ministry,
   objectives,
   programs,
   testimonies,
 } from "@/lib/site-data";
 import heroImg from "@/assets/hero-revival.jpg";
+import teachingPhoto from "@/assets/outreach2.jpg.asset.json";
+
 
 export const Route = createFileRoute("/")({
   component: HomePage,
