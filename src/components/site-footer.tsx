@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Flame, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { ministry } from "@/lib/site-data";
+import logoAsset from "@/assets/car-logo.png.asset.json";
 
 const linkGroups = [
   {
