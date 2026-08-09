@@ -3,7 +3,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import logoAsset from "@/assets/car-logo.png.asset.json";
+import { photos } from "@/lib/images";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -52,7 +52,7 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <Link to="/" className="group flex items-center gap-2.5">
           <img
-            src={logoAsset.url}
+            src={photos.logo}
             alt="ConquerWorld Apostolic Renaissance logo"
             width={44}
             height={38}

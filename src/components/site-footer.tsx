@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { ministry } from "@/lib/site-data";
-import logoAsset from "@/assets/car-logo.png.asset.json";
+import { photos } from "@/lib/images";
 
 const linkGroups = [
   {
@@ -33,7 +33,7 @@ export function SiteFooter() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2.5">
               <img
-                src={logoAsset.url}
+                src={photos.logo}
                 alt="ConquerWorld Apostolic Renaissance logo"
                 width={52}
                 height={45}

@@ -21,7 +21,7 @@ import {
   testimonies,
 } from "@/lib/site-data";
 import heroImg from "@/assets/hero-revival.jpg";
-import teachingPhoto from "@/assets/outreach2.webp.asset.json";
+import { photos } from "@/lib/images";
 
 
 export const Route = createFileRoute("/")({
@@ -145,7 +145,7 @@ function HomePage() {
             <div className="relative">
               <div className="absolute -inset-4 rounded-3xl bg-fire opacity-20 blur-3xl" />
               <img
-                src={teachingPhoto.url}
+                src={photos.outreach2}
                 alt="CAR evangelist teaching a seated community group outdoors under a large tree"
                 className="relative w-full rounded-3xl object-cover shadow-card"
                 loading="lazy"

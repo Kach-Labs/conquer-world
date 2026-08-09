@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Building2, ExternalLink, Heart, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ministry, partnerWays } from "@/lib/site-data";
-import teamPhoto from "@/assets/outreach5.webp.asset.json";
+import { photos } from "@/lib/images";
 
 
 export const Route = createFileRoute("/give")({
@@ -86,7 +86,7 @@ function GivePage() {
           <div className="relative">
             <div className="absolute -inset-4 rounded-3xl bg-fire opacity-20 blur-3xl" />
             <img
-              src={teamPhoto.url}
+              src={photos.outreach5}
               alt="CAR outreach team in reflector vests ready for a street evangelism mission"
               loading="lazy"
               className="relative w-full rounded-3xl object-cover shadow-card"
