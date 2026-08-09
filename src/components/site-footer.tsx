@@ -31,9 +31,13 @@ export function SiteFooter() {
         <div className="grid gap-12 lg:grid-cols-4">
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2.5">
-              <span className="flex h-10 w-10 items-center justify-center rounded-lg bg-fire shadow-fire">
-                <Flame className="h-5 w-5 text-white" strokeWidth={2.5} />
-              </span>
+              <img
+                src={logoAsset.url}
+                alt="ConquerWorld Apostolic Renaissance logo"
+                width={52}
+                height={45}
+                className="h-12 w-auto shrink-0"
+              />
               <div className="leading-tight">
                 <div className="font-display text-lg font-bold text-white">ConquerWorld</div>
                 <div className="text-[10px] uppercase tracking-widest text-gold">
