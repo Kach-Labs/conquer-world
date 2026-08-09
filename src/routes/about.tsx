@@ -3,7 +3,7 @@ import { Flame, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { coreValues, ministry, objectives } from "@/lib/site-data";
 import preachingImg from "@/assets/about-preaching.jpg";
-import villagePhoto from "@/assets/outreach3.webp.asset.json";
+import { photos } from "@/lib/images";
 
 
 export const Route = createFileRoute("/about")({
@@ -170,7 +170,7 @@ function AboutPage() {
               <div className="relative">
                 <div className="absolute -inset-4 rounded-3xl bg-fire opacity-20 blur-3xl" />
                 <img
-                  src={villagePhoto.url}
+                  src={photos.outreach3}
                   alt="Apostle John Wiseman preaching to village elders during a CAR outreach"
                   className="relative w-full rounded-3xl object-cover shadow-card"
                   loading="lazy"

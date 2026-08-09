@@ -192,11 +192,7 @@ const pastDate = (n: number) => {
 // -------- Gallery (real ministry photos) --------
 
 
-import outreach1 from "@/assets/outreach1.webp.asset.json";
-import outreach2 from "@/assets/outreach2.webp.asset.json";
-import outreach3 from "@/assets/outreach3.webp.asset.json";
-import outreach4 from "@/assets/outreach4.webp.asset.json";
-import outreach5 from "@/assets/outreach5.webp.asset.json";
+import { photos } from "@/lib/images";
 
 export type GalleryCategory =
   | "Street Evangelism"
@@ -217,7 +213,7 @@ export interface GalleryImage {
 export const galleryImages: GalleryImage[] = [
   {
     id: "g-002",
-    url: outreach2.url,
+    url: photos.outreach2,
     caption: "Open-air teaching under the mango tree",
     context: "Community gathering, Gulu",
     category: "Teaching",
@@ -226,7 +222,7 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     id: "g-001",
-    url: outreach1.url,
+    url: photos.outreach1,
     caption: "Preaching at the fuel station junction",
     context: "Street storming, Gulu town",
     category: "Street Evangelism",
@@ -235,7 +231,7 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     id: "g-003",
-    url: outreach3.url,
+    url: photos.outreach3,
     caption: "The Word among the elders",
     context: "Village outreach, northern Uganda",
     category: "Village Outreach",
@@ -244,7 +240,7 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     id: "g-004",
-    url: outreach4.url,
+    url: photos.outreach4,
     caption: "Tracts at the traffic lights",
     context: "City junction outreach",
     category: "Street Evangelism",
@@ -253,7 +249,7 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     id: "g-005",
-    url: outreach5.url,
+    url: photos.outreach5,
     caption: "The outreach team, ready to go",
     context: "Market storming team, Gulu",
     category: "Team",
