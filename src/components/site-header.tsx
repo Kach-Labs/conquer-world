@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Flame, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import logoAsset from "@/assets/car-logo.png.asset.json";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -50,9 +51,13 @@ export function SiteHeader() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <Link to="/" className="group flex items-center gap-2.5">
-          <span className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-fire shadow-fire">
-            <Flame className="h-5 w-5 text-white" strokeWidth={2.5} />
-          </span>
+          <img
+            src={logoAsset.url}
+            alt="ConquerWorld Apostolic Renaissance logo"
+            width={44}
+            height={38}
+            className="h-10 w-auto shrink-0"
+          />
           <span className="flex flex-col leading-none">
             <span className="font-display text-base font-bold text-white">ConquerWorld</span>
             <span className="text-[10px] font-medium uppercase tracking-widest text-gold">

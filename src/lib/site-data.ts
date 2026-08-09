@@ -192,11 +192,11 @@ const pastDate = (n: number) => {
 // -------- Gallery (real ministry photos) --------
 
 
-import outreach1 from "@/assets/outreach1.jpg.asset.json";
-import outreach2 from "@/assets/outreach2.jpg.asset.json";
-import outreach3 from "@/assets/outreach3.jpg.asset.json";
-import outreach4 from "@/assets/outreach4.jpg.asset.json";
-import outreach5 from "@/assets/outreach5.jpg.asset.json";
+import outreach1 from "@/assets/outreach1.webp.asset.json";
+import outreach2 from "@/assets/outreach2.webp.asset.json";
+import outreach3 from "@/assets/outreach3.webp.asset.json";
+import outreach4 from "@/assets/outreach4.webp.asset.json";
+import outreach5 from "@/assets/outreach5.webp.asset.json";
 
 export type GalleryCategory =
   | "Street Evangelism"

@@ -21,7 +21,7 @@ import {
   testimonies,
 } from "@/lib/site-data";
 import heroImg from "@/assets/hero-revival.jpg";
-import teachingPhoto from "@/assets/outreach2.jpg.asset.json";
+import teachingPhoto from "@/assets/outreach2.webp.asset.json";
 
 
 export const Route = createFileRoute("/")({
