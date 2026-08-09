@@ -3,7 +3,7 @@ import { Flame, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { coreValues, ministry, objectives } from "@/lib/site-data";
 import preachingImg from "@/assets/about-preaching.jpg";
-import villagePhoto from "@/assets/outreach3.jpg.asset.json";
+import villagePhoto from "@/assets/outreach3.webp.asset.json";
 
 
 export const Route = createFileRoute("/about")({
